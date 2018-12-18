@@ -57,16 +57,18 @@ class RestoreCmd(object):
                 self.println("%4d %s %s" % (i, trashedfile.deletion_date, trashedfile.original_location))
             self.restore_asking_the_user(trashed_files)
     def restore_asking_the_user(self, trashed_files):
-        index=self.input("What file to restore [0..%d]: " % (len(trashed_files)-1))
+        index=self.input("What files to restore [0..%d]: " % (len(trashed_files)-1))
         if index == "" :
             self.println("Exiting")
         else :
             try:
-                index = int(index)
-                if (index < 0 or index >= len(trashed_files)):
-                    raise IndexError("Out of range")
-                trashed_file = trashed_files[index]
-                self.restore(trashed_file)
+                indexs = index.split()
+                for index in indexs:
+                    index = int(index)
+                    if (index < 0 or index >= len(trashed_files)):
+                        raise IndexError("Out of range")
+                    trashed_file = trashed_files[index]
+                    self.restore(trashed_file)
             except (ValueError, IndexError) as e:
                 self.printerr("Invalid entry")
                 self.exit(1)

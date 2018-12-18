@@ -1,6 +1,16 @@
 trash-cli - Command Line Interface to FreeDesktop.org Trash.
 ============================================================
 
+Update
+------
+
+add multiple restore support
+
+    git clone https://github.com/ay27/trash-cli.git
+    cd trash-cli
+    python setup.py install --user
+
+
 |Donate|_
 
 trash-cli trashes files recording the original path, deletion date, and 
@@ -43,9 +53,9 @@ Restore a trashed file::
     2 2007-08-30 12:39:41 /home/andrea/bar2
     3 2007-08-30 12:39:41 /home/andrea/foo2
     4 2007-08-30 12:39:41 /home/andrea/foo
-    What file to restore [0..4]: 4
-    $ ls foo
-    foo
+    What file to restore [0..4]: 2 4
+    $ ls
+    foo bar2
 
 Remove all files from the trashcan::
 
