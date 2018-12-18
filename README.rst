@@ -4,11 +4,15 @@ trash-cli - Command Line Interface to FreeDesktop.org Trash.
 Update
 ------
 
-add multiple restore support
+Add multiple restore support.
+
+Installation::
+
 
     git clone https://github.com/ay27/trash-cli.git
     cd trash-cli
     python setup.py install --user
+
 
 
 |Donate|_
